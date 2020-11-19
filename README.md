@@ -19,9 +19,6 @@ The DNS record contains the name _daic and contains the value
 
 where intelfinder.io is replaced by the DAIC server location.
 
+## Proof of Concept
 
-
-## Components
-
-This DAIC POC contains two components:
-- DAIC Server - 
+This repository contains a proof of concept for DAIC, written in PHP, for both the client and the server.

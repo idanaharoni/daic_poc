@@ -1,1 +1,2 @@
-# daic_poc_client
+Distributed Account Information Certification (DAIC) Proof of Concept
+

@@ -6,7 +6,11 @@ A proof of concept of DAIC, a suggested method for validating payment account in
 
 DAIC provides CFOs and Account Payable teams with the ability to validate that the account number they have on file is truly of the vendor, before issuing a payment.
 The validation is performed using a certification server, or DAIC server, which hosts the updated and certified account number of the vendor.
-Each company implementing DAIC chooses which server to host this information in - whether it is operated by them or by a third party.
+Each company implementing DAIC chooses which server to host this information in - whether it is operated by them or by a third party. This is done by setting up a TXT DNS record to their domain.
+
+Prior to issuing a payment, the sender provides a client with the company domain and account number. The client then retrieves the DNS record, extracts the DAIC server, then queries it to validate the account number.
+
+### DAIC DNS Record
 
 A company implementing DAIC adds a DNS record indicating the server of their choice. 
 The DNS record contains the name _daic and contains the value

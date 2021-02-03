@@ -1,6 +1,6 @@
 # Distributed Account Information Certification (DAIC) Proof of Concept
 
-A proof of concept of DAIC, a suggested method for prventing invoice scams through Business E-mail Compromised (BEC) fraud. [https://www.fbi.gov/scams-and-safety/common-scams-and-crimes/business-email-compromise](More information on BEC fraud).
+A proof of concept of DAIC, a suggested method for prventing invoice scams through Business E-mail Compromised (BEC) fraud. [More information on BEC fraud](https://www.fbi.gov/scams-and-safety/common-scams-and-crimes/business-email-compromise).
 DAIC provides CFOs and Account Payable teams with the ability to validate that the account number they have on file is truly of the vendor, before issuing a payment.
 The validation is performed using a certification server, or DAIC server, which hosts the updated and certified account number of the vendor.
 

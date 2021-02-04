@@ -13,6 +13,7 @@ Each company implementing DAIC chooses which server to host the certified accoun
 The certified account information is then added to the chosen DAIC server.
 
 Prior to issuing a payment, the sender inputs the recipient's domain name and account number to a DAIC client. The client then retrieves the DNS record, extracts the DAIC server, then queries it to validate the account number. The server then checks its records whether the provided account number fits the domain on file. The server response dictates to the client whether the account information is accurate, incorrect or that the domain is not on file.
+
 Due to its open source nature, the client can be a web interface, local software or an embedded feature in a more robust solution.
 
 See process below:

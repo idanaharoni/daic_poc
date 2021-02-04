@@ -12,7 +12,10 @@ DAIC is envisioned as an open source and distributed system, giving companies th
 Each company implementing DAIC chooses which server to host the certified account information in. This is done by setting up a TXT DNS record on their domain. 
 The certified account information is then added to the chosen DAIC server.
 
-Prior to issuing a payment, the sender provides a client with the company domain and account number. The client then retrieves the DNS record, extracts the DAIC server, then queries it to validate the account number.
+Prior to issuing a payment, the sender inputs the recipient's domain name and account number to a DAIC client. The client then retrieves the DNS record, extracts the DAIC server, then queries it to validate the account number.
+Due to its open source nature, the client can be a web interface, local software or an embedded feature in a more robust solution.
+
+See process below:
 
 ![DAIC checking process](https://intelfinder.io/wp-content/uploads/2021/02/daic.png)
 

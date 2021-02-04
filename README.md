@@ -5,14 +5,16 @@ A proof of concept of DAIC, a suggested method for prventing invoice scams throu
 DAIC provides CFOs and Account Payable teams with the ability to validate that the account number they have on file is truly of the vendor, before issuing a payment.
 The validation is performed using a certification server, or DAIC server, which hosts the updated and certified account number of the vendor.
 
-DAIC is envisioned as an open source and distributed system, giving companies the choice of privacy and control levels by enabling them to either use it as a SaaS service offered by third parties, or set up their own infrastructure.
+DAIC is envisioned as an open source and distributed system, giving companies the choice of privacy and control levels by enabling them to either use it as a SaaS service offered by third parties for ease of use, or to set up their own infrastructure.
 
 ## How It Works
 
-
-Each company implementing DAIC chooses which server to host this information in - whether it is operated by them or by a third party. This is done by setting up a TXT DNS record to their domain.
+Each company implementing DAIC chooses which server to host the certified account information in. This is done by setting up a TXT DNS record on their domain. 
+The certified account information is then added to the chosen DAIC server.
 
 Prior to issuing a payment, the sender provides a client with the company domain and account number. The client then retrieves the DNS record, extracts the DAIC server, then queries it to validate the account number.
+
+![DAIC checking process](https://intelfinder.io/wp-content/uploads/2021/02/daic.png)
 
 ### DAIC DNS Record
 

@@ -31,4 +31,26 @@ where intelfinder.io is replaced by the DAIC server location.
 
 ## Proof of Concept
 
-This repository contains a proof of concept for DAIC, written in PHP, for both the client and the server.
+This repository contains a proof of concept for DAIC, for both a DAIC client and server.
+The functionality is limited and is used only to showcase the concept.
+
+### Installation
+
+The POC was written in PHP, with MongoDB used to store records. These technologies were chosen for the proof-of-concept because I'm used to them and should not be indicative of the technologies used in an actual implementation of the concept.
+The recommended enviornment is Ubuntu, with Apache, MongoDB, PHP and Composer installed.
+
+It is necessary to install MongoDB drivers in the project using PHP's Composer. In ./server/lib/ run the following command:
+
+```composer install```
+
+Note that DAIC server has a configuration file at ./server/daic.conf which you may want to review.
+
+### DAIC server
+
+To run the DAIC server, run 
+
+
+
+
+
+

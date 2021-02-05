@@ -43,11 +43,61 @@ It is necessary to install MongoDB drivers in the project using PHP's Composer. 
 
 ```composer install```
 
-Note that DAIC server has a configuration file at ./server/daic.conf which you may want to review.
-
 ### DAIC server
 
-To run the DAIC server, run 
+The DAIC server listens for connections on the a specified port, by default port 1380. 
+While most queries in DAIC should not require authentication, the server can be configured to only allow queries for authenticated users. 
+The server can also be configured to either allow or prevent account information updates by remote sessions. Remote updates should be enabled for servers that provide DAIC as a SaaS service and disabled when the server is managed by the company who wishes to host its certified account information.
+Similarly, the server can be configured to either allow or prevent account registration on the server. Registration is necessary for updating information as well as perform queries when authetication is required. 
+
+The aforementioned settings can be set by editing the file daic.conf in the server directory.
+
+To run the server, execute run.php in the server directory and it should start listening to incoming connections.
+
+```php run.php```
+
+### DAIC client
+
+Run the DAIC client using the following command:
+
+```php poc.php [[DOMAIN]] [[ACCOUNT NUMBER]]```
+
+For example:
+
+```php poc.php intelfinder.io 12345678```
+
+### Protocol
+
+The protocol in which the DAIC client and server communicate in the POC is similar to SMTP and similar protocols.
+Upon connection, the server sends the client an initial handshake of "202 Accepted".
+After the initial handshake, the client performs a secondary handshake of "HELO". The server should respond with "200 Approved".
+Performing a query is done by sending the server "QUERY domain:account number", for example "QUERY intelfinder.io:12345678".
+The server then responds in one of the following responses:
+
+| Response | Description |
+| 200 Confirmed | The domain exists in the server's database and the account information matches what is on file |
+| 201 Unconfirmed | The domain exists in the server's database however the account information does not match what is on file |
+| 401 Unauthorized | Guest queries are not allowed on the server |
+| 404 Not found | The domain could not be found in the server's database |
+| 500 Invalid format | The format of the query was invalid |
+| 501 Invalid domain | The format of the domain supplied in the query was invalid |
+| 502 Invalid account | The format of the account number supplied in the query was invalid |
+
+The client then sends a "QUIT" command to disconnect the session.
+
+The server supports additional actions, which are not part of the client POC.
+When performed, if the action is successful, the server should respond with "200 Approved".
+The actions are:
+
+| Action | Description |
+| AUTH username:password | Authenticates the user, required for performing account information updates and if the server does not allow guest queries |
+| REGISTER username:password | Registers a new user on the server |
+| CREATE domain: account number | Adds a new domain to the server's database, assuming it does not already exist. The domain will be automatically associated with the authenticated user and only they will be able to later update it |
+| UPDATE domain:account number | Updates a domain on the server's database, if the domain is associated with the authenticated user |
+
+Any other command would return a "500 Unknown command" response from the server.
+
+
 
 
 

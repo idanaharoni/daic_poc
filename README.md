@@ -74,14 +74,14 @@ After the initial handshake, the client performs a secondary handshake of "HELO"
 Performing a query is done by sending the server "QUERY domain:account number", for example "QUERY intelfinder.io:12345678".
 The server then responds in one of the following responses:
 
-| Response | Description |
-| 200 Confirmed | The domain exists in the server's database and the account information matches what is on file |
-| 201 Unconfirmed | The domain exists in the server's database however the account information does not match what is on file |
-| 401 Unauthorized | Guest queries are not allowed on the server |
-| 404 Not found | The domain could not be found in the server's database |
-| 500 Invalid format | The format of the query was invalid |
-| 501 Invalid domain | The format of the domain supplied in the query was invalid |
-| 502 Invalid account | The format of the account number supplied in the query was invalid |
+Response | Description 
+200 Confirmed | The domain exists in the server's database and the account information matches what is on file
+201 Unconfirmed | The domain exists in the server's database however the account information does not match what is on file
+401 Unauthorized | Guest queries are not allowed on the server
+404 Not found | The domain could not be found in the server's database
+500 Invalid format | The format of the query was invalid
+501 Invalid domain | The format of the domain supplied in the query was invalid
+502 Invalid account | The format of the account number supplied in the query was invalid
 
 The client then sends a "QUIT" command to disconnect the session.
 
@@ -89,11 +89,11 @@ The server supports additional actions, which are not part of the client POC.
 When performed, if the action is successful, the server should respond with "200 Approved".
 The actions are:
 
-| Action | Description |
-| AUTH username:password | Authenticates the user, required for performing account information updates and if the server does not allow guest queries |
-| REGISTER username:password | Registers a new user on the server |
-| CREATE domain: account number | Adds a new domain to the server's database, assuming it does not already exist. The domain will be automatically associated with the authenticated user and only they will be able to later update it |
-| UPDATE domain:account number | Updates a domain on the server's database, if the domain is associated with the authenticated user |
+Action | Description
+AUTH username:password | Authenticates the user, required for performing account information updates and if the server does not allow guest queries
+REGISTER username:password | Registers a new user on the server
+CREATE domain: account number | Adds a new domain to the server's database, assuming it does not already exist. The domain will be automatically associated with the authenticated user and only they will be able to later update it
+UPDATE domain:account number | Updates a domain on the server's database, if the domain is associated with the authenticated user
 
 Any other command would return a "500 Unknown command" response from the server.
 

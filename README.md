@@ -7,6 +7,8 @@ The validation is performed using a certification server, or DAIC server, which 
 
 DAIC is envisioned as an open source and distributed system, giving companies the choice of privacy and control levels by enabling them to either use it as a SaaS service offered by third parties for ease of use, or to set up their own infrastructure.
 
+Contributions to the concept are welcome, please reach out to the author (LinkedIn https://www.linkedin.com/in/iaharoni/)
+
 ## How It Works
 
 Each company implementing DAIC chooses which server to host the certified account information in. This is done by setting up a TXT DNS record on their domain. 

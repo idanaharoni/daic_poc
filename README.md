@@ -12,7 +12,7 @@ DAIC is envisioned as an open source and distributed system, giving companies th
 Each company implementing DAIC chooses which server to host the certified account information in. This is done by setting up a TXT DNS record on their domain. 
 The certified account information is then added to the chosen DAIC server.
 
-Prior to issuing a payment, the sender inputs the recipient's domain name and account number to a DAIC client. The client then retrieves the DNS record, extracts the DAIC server, then queries it to validate the account number. The server then checks its records whether the provided account number fits the domain on file. The server response dictates to the client whether the account information is accurate, incorrect or that the domain is not on file.
+Prior to issuing a payment, the sender inputs the recipient's domain name and account number to a DAIC client. The client then retrieves the DNS record, extracts the DAIC server, then queries it to validate the account number. The server checks whether the provided account number matches the account number on file that is associated with the domain. The server response dictates to the client whether the account information is accurate, incorrect or that the domain is not on file.
 
 Due to its open source nature, the client can be a web interface, local software or an embedded feature in a more robust solution.
 
@@ -36,10 +36,10 @@ The functionality is limited and is used only to showcase the concept.
 
 ### Installation
 
-The POC was written in PHP, with MongoDB used to store records. These technologies were chosen for the proof-of-concept because I'm used to them and should not be indicative of the technologies used in an actual implementation of the concept.
+The POC was written in PHP, with MongoDB used to store records. These technologies were chosen for the proof-of-concept due to the author's familiarity with them and should not be indicative of the technologies used in an actual implementation of the concept.
 The recommended enviornment is Ubuntu, with Apache, MongoDB, PHP and Composer installed.
 
-It is necessary to install MongoDB drivers in the project using PHP's Composer. In ./server/lib/ run the following command:
+It is necessary to install MongoDB drivers in the project using PHP's Composer. In `./server/lib/` run the following command:
 
 ```composer install```
 
@@ -52,7 +52,7 @@ Similarly, the server can be configured to either allow or prevent account regis
 
 The aforementioned settings can be set by editing the file daic.conf in the server directory.
 
-To run the server, execute run.php in the server directory and it should start listening to incoming connections.
+To run the server, execute `run.php` in the server directory and it should start listening to incoming connections.
 
 ```php run.php```
 
